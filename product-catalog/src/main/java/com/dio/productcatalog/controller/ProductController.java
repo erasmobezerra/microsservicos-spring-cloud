@@ -20,10 +20,10 @@ public class ProductController {
     }
 
 
-    @RequestMapping
-    public Iterable<Product> list() {
-        return productRepository.findAll();
-    }
+//    @RequestMapping
+//    public Iterable<Product> list() {
+//        return productRepository.findAll();
+//    }
 
     @RequestMapping(value = "/{id}")
     public Optional<Product> findById(@PathVariable("id") Integer id) {

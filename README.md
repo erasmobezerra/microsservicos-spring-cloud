@@ -8,3 +8,7 @@ Fazer um POST
 
 Verificar registro no Elastic Search
 > http  http://localhost:9200/product/catalog/1
+
+Buscar todos os registros
+> http GET http://localhost:9200/product/catalog/_search/
+ 
