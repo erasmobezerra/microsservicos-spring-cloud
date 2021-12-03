@@ -1,6 +1,6 @@
 spring:
   application:
-    name: shopping-cart
+    name: product-catalog
   config:
     import: "optional:configserver:" # https://stackoverflow.com/questions/67507452/no-spring-config-import-property-has-been-defined
 
