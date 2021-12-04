@@ -14,18 +14,9 @@ Buscar todos os registros
  
 ## Redis Server
 
-### Install Local
-> $ sudo apt install redis-server
-
-> $ sudo systemctl status redis
-
-Redis CLI
-> $ redis-cli
-
-### Install Container Docker
 > $ docker run --name redis-server -d redis
 
-Redis CLI
+Acessando Redis CLI
 > $ docker run -it --link redis-server:redis --rm redis redis-cli -h redis -p 6379
 
 Verificando saúde do projeto startado
@@ -37,3 +28,11 @@ Metodos Http, testando a API conectada ao Redis
 > http DELETE http://localhost:8082/cart/123 
 
 > http GET http://localhost:8082/cart/123 
+
+## Gateway
+
+Acessando pelo Gateway o banco do Shopping-cart
+> http://localhost:8080/cart/123
+
+Acessando pelo Gateway o banco do Product-catalog
+> http://localhost:8080/product
