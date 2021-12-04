@@ -15,8 +15,8 @@ public class RedisConfig {
     @Bean
     public JedisConnectionFactory jedisConnectionFactory() {
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-        redisStandaloneConfiguration.setHostName("172.17.0.3");
-        redisStandaloneConfiguration.setPort(6379);
+        redisStandaloneConfiguration.setHostName("172.17.0.3"); // IP ADDRESS do container Redis-server
+        redisStandaloneConfiguration.setPort(6379);  // Porta padrão do Redis
         //redisStandaloneConfiguration.setPassword("");
         return new JedisConnectionFactory(redisStandaloneConfiguration);
     }
