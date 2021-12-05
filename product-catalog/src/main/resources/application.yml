@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: product-catalog
+  config:
+    import: "optional:configserver:" # https://stackoverflow.com/questions/67507452/no-spring-config-import-property-has-been-defined
+
+  cloud:
+    config:
+      url: http://localhost:8888
+
+
+
