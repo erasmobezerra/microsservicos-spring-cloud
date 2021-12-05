@@ -14,6 +14,9 @@ O projeto original implementado pela professora você pode encontrar
   * Elastisearch
   * Gradle
   
+## Minhas implementações:
+  * HTTP Status
+  * Lombok
 
 ## Configurando Databases
 
