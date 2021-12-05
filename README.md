@@ -24,11 +24,11 @@ Baixando imagem e criando instância do Elasticsearch:
 Verificar a saúde do projeto startado:
 > $ http http://localhost:8080/actuator/health
 
-Fazer um POST: 
+POST: 
 > $ http POST http://localhost:8080/product id=1 name=TV amount=10
 
-Verificar registro direto na porta do ElasticSearch:
-> $ http  http://localhost:9200/product/catalog/1
+GET by id:
+> $ $ http GET http://localhost:8080/product/1 
 
 Buscar todos os registros na porta do ElasticSearch:
 > $ http GET http://localhost:9200/product/catalog/_search/
