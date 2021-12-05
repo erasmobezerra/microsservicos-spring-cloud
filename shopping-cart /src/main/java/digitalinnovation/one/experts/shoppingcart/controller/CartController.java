@@ -2,41 +2,31 @@ package digitalinnovation.one.experts.shoppingcart.controller;
 
 import digitalinnovation.one.experts.shoppingcart.model.Cart;
 import digitalinnovation.one.experts.shoppingcart.model.Item;
-import digitalinnovation.one.experts.shoppingcart.repository.CartRepository;
+import digitalinnovation.one.experts.shoppingcart.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/cart")
 public class CartController {
 
     @Autowired
-    private CartRepository cartRepository;
+    private CartService cartService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     public Cart addItem(@PathVariable("id") Integer id, @RequestBody Item item) {
-        Optional<Cart> savedCart = cartRepository.findById(id);
-        Cart cart;
-        if (savedCart.equals(Optional.empty())) {
-            cart = new Cart(id);
-        }
-        else {
-            cart = savedCart.get();
-        }
-        cart.getItems().add(item);
-        return cartRepository.save(cart);
+       return cartService.save(id, item);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Optional<Cart> findById(@PathVariable("id") Integer id) {
-        return cartRepository.findById(id);
+    public ResponseEntity<Cart> findById(@PathVariable("id") Integer id) {
+        return cartService.findById(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void clear(@PathVariable("id") Integer id) {
-        cartRepository.deleteById(id);
+    public ResponseEntity<Cart> clear(@PathVariable("id") Integer id) throws Exception {
+        return cartService.deleteById(id);
     }
 
 }
