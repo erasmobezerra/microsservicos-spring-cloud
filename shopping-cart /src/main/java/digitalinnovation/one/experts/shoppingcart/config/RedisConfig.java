@@ -17,7 +17,6 @@ public class RedisConfig {
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
         redisStandaloneConfiguration.setHostName("172.17.0.3"); // IP ADDRESS do container Redis-server
         redisStandaloneConfiguration.setPort(6379);  // Porta padrão do Redis
-        //redisStandaloneConfiguration.setPassword("");
         return new JedisConnectionFactory(redisStandaloneConfiguration);
     }
 
@@ -25,12 +24,6 @@ public class RedisConfig {
     public RedisTemplate<String, Object> redisTemplate(){
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(jedisConnectionFactory());
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
-        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
-        redisTemplate.setHashKeySerializer(new JdkSerializationRedisSerializer());
-        redisTemplate.setValueSerializer(new JdkSerializationRedisSerializer());
-        redisTemplate.setEnableTransactionSupport(true);
-        redisTemplate.afterPropertiesSet();
         return redisTemplate;
     }
 
